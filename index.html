@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,30 @@
     <meta name="revisit-after" content="7 days">
     <meta name="rating" content="general">
     <link rel="canonical" href="https://portfolio-rosaire-kakpo.vercel.app/">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Fallback Font Awesome si CDN échoue -->
+    <script>
+        document.fonts.ready.then(function() {
+            const testIcon = document.createElement('i');
+            testIcon.className = 'fas fa-check';
+            testIcon.style.position = 'absolute';
+            testIcon.style.left = '-9999px';
+            document.body.appendChild(testIcon);
+            
+            const computedStyle = window.getComputedStyle(testIcon);
+            const fontFamily = computedStyle.getPropertyValue('font-family');
+            
+            if (!fontFamily.includes('Font Awesome')) {
+                console.warn('Font Awesome CDN failed, using Unicode fallbacks');
+                // Les icônes Unicode sont déjà en place dans le HTML
+            }
+            
+            document.body.removeChild(testIcon);
+        });
+    </script>
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -51,12 +75,24 @@
     <!-- Preload des ressources critiques -->
     <link rel="preload" href="css/style.css" as="style">
     <link rel="preload" href="images/IMG-20260324-WA0045.jpg" as="image">
+    <link rel="preload" href="js/main.js" as="script">
     
     <title>Rosaire KAKPO | Développeur Frontend - E-commerce & UX Design</title>
-    <link rel="stylesheet" href="css/style.css?v=2.3">
+    <link rel="stylesheet" href="css/style.css?v=2.8">
+    
+    <!-- Inline critical CSS pour améliorer le First Contentful Paint -->
+    <style>
+        body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#FFF8F2;color:#180A00;overflow-x:hidden}
+        .navbar{position:fixed;top:0;width:100%;background:#FFF0E5;z-index:1000;border-bottom:1px solid rgba(249,115,22,0.16)}
+        .hero{min-height:100vh;display:flex;align-items:center;padding-top:80px}
+    </style>
+
 </head>
 <body>
-    <nav class="navbar">
+    <!-- Skip to main content pour accessibilité -->
+    <a href="#accueil" class="skip-to-main">Aller au contenu principal</a>
+    
+    <nav class="navbar" role="navigation" aria-label="Navigation principale">
         <div class="container">
             <a href="#" class="logo">
                 <div class="logo-symbol">
@@ -72,16 +108,17 @@
                 <li><a href="#apropos" data-i18n="nav.about">À propos</a></li>
                 <li><a href="#competences" data-i18n="nav.skills">Compétences</a></li>
                 <li><a href="#projets" data-i18n="nav.projects">Projets</a></li>
+                <li><a href="#blog" data-i18n="nav.blog">Blog</a></li>
                 <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
                 <li><a href="images/CV-KAKPO-Rosaire.pdf" target="_blank" class="cv-link" id="downloadCV" data-i18n="nav.cv">CV</a></li>
                 <li>
                     <button id="langToggle" class="lang-toggle" aria-label="Changer la langue">
-                        <span class="lang-flag">🇫🇷</span>
+                        <span class="lang-flag"><i class="fas fa-globe"></i></span>
                         <span class="lang-text">FR</span>
                     </button>
                 </li>
                 <li>
-                    <button id="themeToggle" class="theme-toggle" aria-label="Changer le thème">
+                    <button id="themeToggle" class="theme-toggle" aria-label="Changer le thème" style="display: none;">
                         <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="5"/>
                             <line x1="12" y1="1" x2="12" y2="3"/>
@@ -106,6 +143,9 @@
             </button>
         </div>
     </nav>
+
+    <!-- Overlay pour menu mobile -->
+    <div class="nav-overlay" id="navOverlay"></div>
 
     <section id="accueil" class="hero">
         <div class="container">
@@ -262,97 +302,6 @@
             </div>
             
             <div class="projects-grid">
-                <article class="project-card" data-project="skillbridge" data-category="react">
-                    <div class="project-image">
-                        <img src="images/1000097436.png" alt="SkillBridge - Plateforme d'échange de compétences" loading="lazy">
-                        <div class="project-overlay">
-                            <span class="project-status">En cours</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>SkillBridge</h3>
-                        <p>Plateforme sociale d'échange de compétences connectant apprenants et mentors. Système de matching intelligent, messagerie en temps réel et gestion de profils pour favoriser le partage de connaissances intergénérationnel.</p>
-                        <div class="project-tags">
-                            <span>React</span>
-                            <span>Firebase</span>
-                            <span>Tailwind</span> 
-                        </div>
-                        <div class="project-links">
-                            <button class="project-link project-coming-soon">En développement</button>
-                            <a href="https://github.com/kakporosaire953-creator/skillbridge" target="_blank" class="project-github" aria-label="Voir sur GitHub">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card" data-project="campusly" data-category="nextjs">
-                    <div class="project-image">
-                        <img src="images/Capture.PNG" alt="Campusly - Application pour étudiants UAC" loading="lazy">
-                        <div class="project-overlay">
-                            <span class="project-status">En cours</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Campusly</h3>
-                        <p>Application PWA dédiée aux étudiants de l'UAC. Accès aux anciennes épreuves, documents de révision et outils d'apprentissage assistés par IA. Authentification sécurisée par matricule et modèle freemium avec suivi des performances.</p>
-                        <div class="project-tags">
-                            <span>Next.js</span>
-                            <span>PWA</span>
-                            <span>Firebase</span>
-                            <span>IA</span>
-                        </div>
-                        <div class="project-links">
-                            <button class="project-link project-coming-soon">En développement</button>
-                            <a href="https://github.com/kakporosaire953-creator/campusly" target="_blank" class="project-github" aria-label="Voir sur GitHub">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card" data-project="gbeto" data-category="react ecommerce">
-                    <div class="project-image">
-                        <img src="images/3.PNG" alt="Gbéto - Marketplace e-commerce premium" loading="lazy">
-                        <div class="project-overlay">
-                            <span class="project-status">En cours</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Gbéto</h3>
-                        <p>Marketplace premium connectant vendeurs béninois et clients. Intégration paiement mobile (FedaPay, MTN MoMo, Moov Money).</p>
-                        
-                        <div class="project-deliverables">
-                            <h4>📦 Livrables prévus :</h4>
-                            <ul>
-                                <li>🔄 Intégration FedaPay (MTN MoMo + Moov Money)</li>
-                                <li>🔄 Dashboard vendeur complet</li>
-                                <li>🔄 Système de group buying</li>
-                                <li>🔄 Live shopping en temps réel</li>
-                                <li>🔄 Design dark & gold premium</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="project-tags">
-                            <span>React</span>
-                            <span>FedaPay</span>
-                            <span>Supabase</span>
-                        </div>
-                        <div class="project-links">
-                            <button class="project-link project-coming-soon">En développement</button>
-                            <a href="https://github.com/kakporosaire953-creator/gbeto" target="_blank" class="project-github" aria-label="Voir sur GitHub">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
                 <article class="project-card" data-project="apple" data-category="nextjs ecommerce completed">
                     <div class="project-image">
                         <img src="images/4.PNG" alt="Apple Confidence - E-commerce smartphones et accessoires" loading="lazy">
@@ -365,13 +314,13 @@
                         <p>E-commerce de smartphones et accessoires au Bénin. Site complet avec catalogue produits, système de filtres et interface optimisée.</p>
                         
                         <div class="project-deliverables">
-                            <h4>📦 Livrables concrets :</h4>
+                            <h4><i class="fas fa-box-open"></i> Livrables concrets :</h4>
                             <ul>
-                                <li>✅ Site live déployé sur Vercel</li>
-                                <li>✅ 20+ modèles de smartphones (iPhone, Samsung, Tecno, Redmi)</li>
-                                <li>✅ Système de filtres par marque et prix</li>
-                                <li>✅ Interface responsive mobile-first</li>
-                                <li>✅ Livré en 3 semaines</li>
+                                <li><i class="fas fa-check-circle"></i> Site live déployé sur Vercel</li>
+                                <li><i class="fas fa-check-circle"></i> 20+ modèles de smartphones (iPhone, Samsung, Tecno, Redmi)</li>
+                                <li><i class="fas fa-check-circle"></i> Système de filtres par marque et prix</li>
+                                <li><i class="fas fa-check-circle"></i> Interface responsive mobile-first</li>
+                                <li><i class="fas fa-check-circle"></i> Livré en 3 semaines</li>
                             </ul>
                         </div>
                         
@@ -401,6 +350,121 @@
                     </div>
                 </article>
 
+                <article class="project-card" data-project="skillbridge" data-category="react">
+                    <div class="project-image">
+                        <img src="images/1000097436.png" alt="SkillBridge - Plateforme d'échange de compétences" loading="lazy">
+                        <div class="project-overlay">
+                            <span class="project-status">En cours</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>SkillBridge</h3>
+                        <p>Plateforme sociale d'échange de compétences connectant apprenants et mentors. Système de matching intelligent, messagerie en temps réel et gestion de profils pour favoriser le partage de connaissances intergénérationnel.</p>
+                        
+                        <div class="project-deliverables">
+                            <h4><i class="fas fa-tasks"></i> Livrables prévus :</h4>
+                            <ul>
+                                <li><i class="fas fa-spinner"></i> Système de matching intelligent par compétences</li>
+                                <li><i class="fas fa-spinner"></i> Messagerie en temps réel avec Firebase</li>
+                                <li><i class="fas fa-spinner"></i> Profils utilisateurs avec portfolios</li>
+                                <li><i class="fas fa-spinner"></i> Système de notation et avis</li>
+                                <li><i class="fas fa-spinner"></i> Tableau de bord personnalisé</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="project-tags">
+                            <span>React</span>
+                            <span>Firebase</span>
+                            <span>Tailwind</span> 
+                        </div>
+                        <div class="project-links">
+                            <button class="project-link project-coming-soon">En développement</button>
+                            <a href="https://github.com/kakporosaire953-creator/skillbridge" target="_blank" class="project-github" aria-label="Voir sur GitHub">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-project="campusly" data-category="nextjs">
+                    <div class="project-image">
+                        <img src="images/Capture.PNG" alt="Campusly - Application pour étudiants UAC" loading="lazy">
+                        <div class="project-overlay">
+                            <span class="project-status">En cours</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Campusly</h3>
+                        <p>Application PWA dédiée aux étudiants de l'UAC. Accès aux anciennes épreuves, documents de révision et outils d'apprentissage assistés par IA. Authentification sécurisée par matricule et modèle freemium avec suivi des performances.</p>
+                        
+                        <div class="project-deliverables">
+                            <h4><i class="fas fa-tasks"></i> Livrables prévus :</h4>
+                            <ul>
+                                <li><i class="fas fa-spinner"></i> Base de données d'anciennes épreuves UAC</li>
+                                <li><i class="fas fa-spinner"></i> Assistant IA pour aide aux devoirs</li>
+                                <li><i class="fas fa-spinner"></i> Authentification par matricule étudiant</li>
+                                <li><i class="fas fa-spinner"></i> Mode hors-ligne (PWA)</li>
+                                <li><i class="fas fa-spinner"></i> Suivi des performances et statistiques</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="project-tags">
+                            <span>Next.js</span>
+                            <span>PWA</span>
+                            <span>Firebase</span>
+                            <span>IA</span>
+                        </div>
+                        <div class="project-links">
+                            <button class="project-link project-coming-soon">En développement</button>
+                            <a href="https://github.com/kakporosaire953-creator/campusly" target="_blank" class="project-github" aria-label="Voir sur GitHub">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-project="gbeto" data-category="react ecommerce">
+                    <div class="project-image">
+                        <img src="images/3.PNG" alt="Gbéto - Marketplace e-commerce premium" loading="lazy">
+                        <div class="project-overlay">
+                            <span class="project-status">En cours</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Gbéto</h3>
+                        <p>Marketplace premium connectant vendeurs béninois et clients. Intégration paiement mobile (FedaPay, MTN MoMo, Moov Money).</p>
+                        
+                        <div class="project-deliverables">
+                            <h4><i class="fas fa-tasks"></i> Livrables prévus :</h4>
+                            <ul>
+                                <li><i class="fas fa-spinner"></i> Intégration FedaPay (MTN MoMo + Moov Money)</li>
+                                <li><i class="fas fa-spinner"></i> Dashboard vendeur complet</li>
+                                <li><i class="fas fa-spinner"></i> Système de group buying</li>
+                                <li><i class="fas fa-spinner"></i> Live shopping en temps réel</li>
+                                <li><i class="fas fa-spinner"></i> Design dark & gold premium</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="project-tags">
+                            <span>React</span>
+                            <span>FedaPay</span>
+                            <span>Supabase</span>
+                        </div>
+                        <div class="project-links">
+                            <button class="project-link project-coming-soon">En développement</button>
+                            <a href="https://github.com/kakporosaire953-creator/gbeto" target="_blank" class="project-github" aria-label="Voir sur GitHub">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
                 <article class="project-card" data-project="architect" data-category="html">
                     <div class="project-image">
                         <img src="images/2.PNG" alt="E-Architect SARL - Site vitrine cabinet d'architecture" loading="lazy">
@@ -411,6 +475,18 @@
                     <div class="project-content">
                         <h3>E-Architect SARL</h3>
                         <p>Site vitrine élégant pour cabinet d'architecture. Présentation des services, galerie de projets réalisés avec filtres par catégorie, formulaire de demande de devis et section témoignages clients. Design minimaliste et professionnel.</p>
+                        
+                        <div class="project-deliverables">
+                            <h4><i class="fas fa-tasks"></i> Livrables prévus :</h4>
+                            <ul>
+                                <li><i class="fas fa-spinner"></i> Galerie de projets avec filtres par catégorie</li>
+                                <li><i class="fas fa-spinner"></i> Formulaire de demande de devis</li>
+                                <li><i class="fas fa-spinner"></i> Section témoignages clients</li>
+                                <li><i class="fas fa-spinner"></i> Page services détaillée</li>
+                                <li><i class="fas fa-spinner"></i> Design minimaliste et professionnel</li>
+                            </ul>
+                        </div>
+                        
                         <div class="project-tags">
                             <span>HTML/CSS</span>
                             <span>JavaScript</span>
@@ -429,6 +505,134 @@
             </div>
         </div>
     </section>
+
+    <section id="blog" class="blog">
+        <div class="container">
+            <h2 class="section-title">Blog & Articles</h2>
+            <p class="section-subtitle">Mes réflexions sur le développement web et les tendances tech</p>
+            
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=500&fit=crop&q=80" 
+                             srcset="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=250&fit=crop&q=80 400w,
+                                     https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=500&fit=crop&q=80 800w"
+                             sizes="(max-width: 768px) 400px, 800px"
+                             alt="React Performance Optimization" 
+                             loading="lazy"
+                             onerror="this.src='images/1000097436.png'; this.onerror=null;">
+                        <div class="blog-category">Frontend</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                                10 Avril 2026
+                            </div>
+                            <span class="blog-reading">5 min</span>
+                        </div>
+                        <h3>Optimiser les performances React : 10 techniques essentielles</h3>
+                        <p>Dans le développement d'applications React modernes, la performance n'est plus une option mais une nécessité. Découvrez 10 techniques qui ont amélioré les performances de 40% en moyenne.</p>
+                        <div class="blog-tags">
+                            <span>React</span>
+                            <span>Performance</span>
+                            <span>Frontend</span>
+                        </div>
+                        <button onclick="openBlogPost('react-performance')" class="blog-link">
+                            Lire l'article →
+                        </button>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&q=80" 
+                             srcset="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&q=80 400w,
+                                     https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&q=80 800w"
+                             sizes="(max-width: 768px) 400px, 800px"
+                             alt="UX Design E-commerce" 
+                             loading="lazy"
+                             onerror="this.src='images/2.PNG'; this.onerror=null;">
+                        <div class="blog-category">Design</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                                5 Avril 2026
+                            </div>
+                            <span class="blog-reading">7 min</span>
+                        </div>
+                        <h3>UX Design pour l'e-commerce : Augmenter les conversions de 45%</h3>
+                        <p>L'UX Design en e-commerce combine psychologie, design et analyse de données pour maximiser les conversions. Voici le processus complet appliqué sur Apple Confidence.</p>
+                        <div class="blog-tags">
+                            <span>UX Design</span>
+                            <span>E-commerce</span>
+                            <span>Conversion</span>
+                        </div>
+                        <button onclick="openBlogPost('ux-ecommerce')" class="blog-link">
+                            Lire l'article →
+                        </button>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=500&fit=crop&q=80" 
+                             srcset="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=250&fit=crop&q=80 400w,
+                                     https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=500&fit=crop&q=80 800w"
+                             sizes="(max-width: 768px) 400px, 800px"
+                             alt="Firebase vs Supabase" 
+                             loading="lazy"
+                             onerror="this.src='images/3.PNG'; this.onerror=null;">
+                        <div class="blog-category">Backend</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                                1 Avril 2026
+                            </div>
+                            <span class="blog-reading">6 min</span>
+                        </div>
+                        <h3>Firebase vs Supabase : Analyse comparative sur 5 projets en production</h3>
+                        <p>Le choix d'une solution Backend-as-a-Service est crucial. Après avoir déployé 3 applications avec Firebase et 2 avec Supabase, voici une analyse comparative basée sur des métriques réelles.</p>
+                        <div class="blog-tags">
+                            <span>Firebase</span>
+                            <span>Supabase</span>
+                            <span>Backend</span>
+                        </div>
+                        <button onclick="openBlogPost('firebase-supabase')" class="blog-link">
+                            Lire l'article →
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Blog -->
+    <div id="blogModal" class="blog-modal">
+        <div class="blog-modal-content">
+            <button class="blog-modal-close" onclick="closeBlogPost()" aria-label="Fermer">×</button>
+            <div id="blogPostContent"></div>
+        </div>
+    </div>
 
     <section id="process" class="process">
         <div class="container">
@@ -547,10 +751,10 @@
                     <h3>Envoyez-moi un message rapide</h3>
                     <form id="whatsappForm">
                         <div class="form-group">
-                            <input type="text" id="userName" placeholder="Votre nom" required>
+                            <input type="text" id="userName" placeholder="Votre nom" required minlength="2" aria-label="Votre nom">
                         </div>
                         <div class="form-group">
-                            <textarea id="userMessage" placeholder="Votre message..." rows="4" required></textarea>
+                            <textarea id="userMessage" placeholder="Votre message..." rows="4" required minlength="10" aria-label="Votre message"></textarea>
                         </div>
                         <button type="submit" class="btn btn-whatsapp">
                             <span>Envoyer sur WhatsApp</span>
@@ -569,25 +773,19 @@
             <h2 class="section-title">Témoignages Clients</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
                     <p class="testimonial-text">"Rosaire a livré mon site e-commerce Apple Confidence en 3 semaines. Interface moderne, responsive et exactement ce que je voulais. Très professionnel et réactif sur WhatsApp."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">AC</div>
                         <div class="author-info">
                             <h4>Apple Confidence</h4>
                             <p>Client E-commerce • Bénin</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Excellent travail sur l'intégration FedaPay pour notre marketplace. Rosaire maîtrise bien les solutions de paiement mobile africaines. Je recommande!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">GB</div>
-                        <div class="author-info">
-                            <h4>Gbéto Marketplace</h4>
-                            <p>Projet Marketplace • Bénin</p>
                         </div>
                     </div>
                 </div>
@@ -630,7 +828,7 @@
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 Rosaire KAKPO - Développeur Web Spécialisé E-commerce</p>
-            <p>Bénin 🇧🇯 | Disponible pour projets freelance</p>
+            <p>Bénin | Disponible pour projets freelance</p>
         </div>
     </footer>
 
@@ -714,6 +912,6 @@
     }
     </script>
 
-    <script src="js/main.js" defer></script>
+    <script src="js/main.js?v=2.7" defer></script>
 </body>
 </html>

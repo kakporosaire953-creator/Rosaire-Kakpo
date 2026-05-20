@@ -1,0 +1,96 @@
+{
+  "projects": [
+    {
+      "slug": "ecommerce-platform",
+      "title": "Plateforme E-commerce",
+      "category": "ecommerce",
+      "description": "Solution e-commerce complète avec intégration de paiement",
+      "context": "Un client avait besoin d'une boutique en ligne scalable pour vendre ses produits",
+      "solution": "J'ai construit une plateforme e-commerce avec Next.js, intégration Stripe et base de données PostgreSQL",
+      "technologies": ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS"],
+      "images": ["/projects/ecommerce-1.jpg", "/projects/ecommerce-2.jpg"],
+      "results": ["Augmentation de 50% des ventes", "99.9% de disponibilité"],
+      "testimonial": {
+        "author": "Jean Dupont",
+        "role": "PDG",
+        "content": "Rosaire a livré une plateforme exceptionnelle. Le service était professionnel et réactif."
+      },
+      "links": {
+        "live": "https://example-ecommerce.com",
+        "github": "https://github.com/example/ecommerce"
+      },
+      "year": 2024,
+      "duration": "3 mois",
+      "status": "completed"
+    },
+    {
+      "slug": "mobile-app",
+      "title": "Application Mobile",
+      "category": "mobile",
+      "description": "Application mobile cross-platform pour la gestion de tâches",
+      "context": "Besoin d'une application mobile pour gérer les tâches quotidiennes",
+      "solution": "Développement d'une application React Native avec synchronisation cloud",
+      "technologies": ["React Native", "Firebase", "Redux", "TypeScript"],
+      "images": ["/projects/mobile-1.jpg", "/projects/mobile-2.jpg"],
+      "results": ["10k+ téléchargements", "4.8/5 étoiles"],
+      "links": {
+        "github": "https://github.com/example/mobile-app"
+      },
+      "year": 2024,
+      "duration": "2 mois",
+      "status": "completed"
+    },
+    {
+      "slug": "iot-smart-home",
+      "title": "Système Domotique IoT",
+      "category": "iot",
+      "description": "Système de domotique connecté avec contrôle via application",
+      "context": "Automatisation d'une maison intelligente avec capteurs et contrôle à distance",
+      "solution": "Système IoT avec Arduino, capteurs et application de contrôle",
+      "technologies": ["Arduino", "Python", "MQTT", "React"],
+      "images": ["/projects/iot-1.jpg", "/projects/iot-2.jpg"],
+      "results": ["Économies d'énergie de 30%", "Automatisation complète"],
+      "links": {
+        "github": "https://github.com/example/smart-home"
+      },
+      "year": 2023,
+      "duration": "4 mois",
+      "status": "completed"
+    },
+    {
+      "slug": "web-dashboard",
+      "title": "Tableau de Bord Web",
+      "category": "web",
+      "description": "Tableau de bord analytique pour suivi de données en temps réel",
+      "context": "Besoin de visualiser les données d'une entreprise en temps réel",
+      "solution": "Tableau de bord interactif avec graphiques en temps réel et export de données",
+      "technologies": ["React", "Next.js", "Chart.js", "PostgreSQL"],
+      "images": ["/projects/dashboard-1.jpg", "/projects/dashboard-2.jpg"],
+      "results": ["Réduction du temps d'analyse de 70%", "Décisions plus rapides"],
+      "links": {
+        "live": "https://example-dashboard.com",
+        "github": "https://github.com/example/dashboard"
+      },
+      "year": 2024,
+      "duration": "6 semaines",
+      "status": "completed"
+    },
+    {
+      "slug": "backend-api",
+      "title": "API Backend Scalable",
+      "category": "backend",
+      "description": "Architecture backend scalable pour application multi-clients",
+      "context": "Besoin d'une API robuste pour supporter plusieurs applications clients",
+      "solution": "API REST avec Node.js, authentification JWT et base de données MongoDB",
+      "technologies": ["Node.js", "Express", "MongoDB", "JWT", "Docker"],
+      "images": ["/projects/backend-1.jpg"],
+      "results": ["Support de 100k+ utilisateurs", "Latence < 100ms"],
+      "links": {
+        "github": "https://github.com/example/backend-api"
+      },
+      "year": 2024,
+      "duration": "2 mois",
+      "status": "completed"
+    }
+  ]
+}

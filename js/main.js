@@ -1,11 +1,24 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
+const navOverlay = document.getElementById('navOverlay');
 const links = document.querySelectorAll('.nav-links a');
 
 if (menuToggle && navLinks) {
     menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         menuToggle.classList.toggle('active');
+        if (navOverlay) {
+            navOverlay.classList.toggle('active');
+        }
+    });
+}
+
+// Fermer le menu en cliquant sur l'overlay
+if (navOverlay) {
+    navOverlay.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+        navOverlay.classList.remove('active');
     });
 }
 
@@ -17,6 +30,9 @@ if (links.length > 0) {
             }
             if (menuToggle) {
                 menuToggle.classList.remove('active');
+            }
+            if (navOverlay) {
+                navOverlay.classList.remove('active');
             }
         });
     });
@@ -97,8 +113,27 @@ if (whatsappForm) {
     whatsappForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const name = document.getElementById('userName').value;
-        const message = document.getElementById('userMessage').value;
+        const nameInput = document.getElementById('userName');
+        const messageInput = document.getElementById('userMessage');
+        const name = nameInput.value.trim();
+        const message = messageInput.value.trim();
+        
+        // Validation
+        if (!name || name.length < 2) {
+            nameInput.style.borderColor = '#ef4444';
+            nameInput.focus();
+            return;
+        }
+        
+        if (!message || message.length < 10) {
+            messageInput.style.borderColor = '#ef4444';
+            messageInput.focus();
+            return;
+        }
+        
+        // Reset border colors
+        nameInput.style.borderColor = '';
+        messageInput.style.borderColor = '';
         
         if (name && message) {
             const whatsappMessage = `Bonjour, je suis ${name}. ${message}`;
@@ -109,47 +144,16 @@ if (whatsappForm) {
             whatsappForm.reset();
         }
     });
-}
-
-
-// ========================================
-// MODE SOMBRE / DARK MODE
-// ========================================
-
-const themeToggle = document.getElementById('themeToggle');
-const html = document.documentElement;
-
-// Charger le thème sauvegardé ou utiliser le thème système
-const savedTheme = localStorage.getItem('theme');
-const systemTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-const currentTheme = savedTheme || systemTheme;
-
-// Appliquer le thème au chargement
-html.setAttribute('data-theme', currentTheme);
-
-// Toggle du thème
-if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
-        html.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        
-        // Animation du bouton
-        themeToggle.style.transform = 'rotate(360deg)';
-        setTimeout(() => {
-            themeToggle.style.transform = 'rotate(0deg)';
-        }, 300);
+    
+    // Reset border color on input
+    const inputs = whatsappForm.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('input', function() {
+            this.style.borderColor = '';
+        });
     });
 }
 
-// Détecter les changements de préférence système
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (!localStorage.getItem('theme')) {
-        html.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-    }
-});
 
 // ========================================
 // FILTRES DE PROJETS
@@ -674,9 +678,15 @@ function openBlogPost(postId) {
     const post = blogPosts[postId];
     
     if (post && modal && content) {
-        content.innerHTML = post.content;
+        // Afficher le modal avec loading
         modal.classList.add('active');
+        content.innerHTML = '<div class="blog-modal-loading">Chargement...</div>';
         document.body.style.overflow = 'hidden';
+        
+        // Simuler un léger délai pour le chargement (optionnel)
+        setTimeout(() => {
+            content.innerHTML = post.content;
+        }, 100);
     }
 }
 

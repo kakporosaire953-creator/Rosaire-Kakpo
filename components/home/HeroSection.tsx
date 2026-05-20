@@ -46,8 +46,8 @@ export default function HeroSection() {
           variants={itemVariants}
         >
           {language === 'fr'
-            ? 'Développeur Full Stack'
-            : 'Full Stack Developer'}
+            ? 'Développeur Frontend'
+            : 'Frontend Developer'}
         </motion.h1>
 
         {/* Subtitle */}

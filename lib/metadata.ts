@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
 export const baseMetadata: Metadata = {
-  title: 'Rosaire Kakpo - Développeur Full Stack',
-  description: 'Portfolio de Rosaire Kakpo, développeur full stack spécialisé en web, mobile, e-commerce et IoT.',
+  title: 'Rosaire Kakpo - Développeur Frontend',
+  description: 'Portfolio de Rosaire Kakpo, développeur frontend spécialisé en web, e-commerce et UX Design.',
   keywords: ['développeur', 'web', 'mobile', 'e-commerce', 'IoT', 'portfolio'],
   authors: [{ name: 'Rosaire Kakpo' }],
   creator: 'Rosaire Kakpo',
@@ -11,8 +11,8 @@ export const baseMetadata: Metadata = {
     locale: 'fr_FR',
     url: 'https://rosairekakpo.com',
     siteName: 'Rosaire Kakpo',
-    title: 'Rosaire Kakpo - Développeur Full Stack',
-    description: 'Portfolio de Rosaire Kakpo, développeur full stack spécialisé en web, mobile, e-commerce et IoT.',
+    title: 'Rosaire Kakpo - Développeur Frontend',
+    description: 'Portfolio de Rosaire Kakpo, développeur frontend spécialisé en web, e-commerce et UX Design.',
     images: [
       {
         url: 'https://rosairekakpo.com/og-image.jpg',
@@ -24,8 +24,8 @@ export const baseMetadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rosaire Kakpo - Développeur Full Stack',
-    description: 'Portfolio de Rosaire Kakpo, développeur full stack spécialisé en web, mobile, e-commerce et IoT.',
+    title: 'Rosaire Kakpo - Développeur Frontend',
+    description: 'Portfolio de Rosaire Kakpo, développeur frontend spécialisé en web, e-commerce et UX Design.',
     images: ['https://rosairekakpo.com/og-image.jpg'],
   },
 };

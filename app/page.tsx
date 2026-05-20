@@ -7,8 +7,8 @@ import Testimonial from '@/components/home/Testimonial';
 import BuildJourney from '@/components/stats/BuildJourney';
 
 export const metadata = generatePageMetadata(
-  'Rosaire Kakpo - Développeur Full Stack',
-  'Portfolio de Rosaire Kakpo, développeur full stack spécialisé en web, mobile, e-commerce et IoT.',
+  'Rosaire Kakpo - Développeur Frontend',
+  'Portfolio de Rosaire Kakpo, développeur frontend spécialisé en web, e-commerce et UX Design.',
   '/'
 );
 

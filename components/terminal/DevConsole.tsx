@@ -27,8 +27,8 @@ const COMMANDS = {
     en: 'Contact: email@rosairekakpo.com | LinkedIn | GitHub | WhatsApp',
   },
   about: {
-    fr: 'Développeur full-stack passionné par l\'IA, basé à Cotonou, Bénin',
-    en: 'Full-stack developer passionate about AI, based in Cotonou, Benin',
+    fr: 'Développeur frontend passionné par l\'IA, basé à Cotonou, Bénin',
+    en: 'Frontend developer passionate about AI, based in Cotonou, Benin',
   },
   easter: {
     fr: '🎉 Vous avez trouvé un easter egg! Bravo! 🎉',

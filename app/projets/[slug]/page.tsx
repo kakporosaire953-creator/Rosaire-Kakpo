@@ -9,12 +9,15 @@ import ProjectNavigation from '@/components/project-detail/ProjectNavigation';
 import ProjectCTA from '@/components/project-detail/ProjectCTA';
 import { Providers, useLanguage } from '@/app/providers';
 
-export async function generateStaticParams() {
-  const slugs = getProjectSlugs();
-  return slugs.map((slug) => ({
-    slug,
-  }));
-}
+// Disable static generation - use on-demand ISR instead
+// export async function generateStaticParams() {
+//   const slugs = getProjectSlugs();
+//   return slugs.map((slug) => ({
+//     slug,
+//   }));
+// }
+
+export const revalidate = 3600; // Revalidate every hour
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const project = getProjectBySlug(params.slug);

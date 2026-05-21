@@ -10,8 +10,6 @@ import { baseMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = baseMetadata;
 
-// Force rebuild
-
 export default function RootLayout({
   children,
 }: {

@@ -6,10 +6,9 @@ import { motion } from 'framer-motion';
 
 interface ProjectCardProps {
   project: Project;
-  language: 'fr' | 'en';
 }
 
-export default function ProjectCard({ project, language }: ProjectCardProps) {
+export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

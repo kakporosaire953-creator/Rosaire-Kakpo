@@ -40,7 +40,7 @@ export default function ProjectGrid({ projects, language }: ProjectGridProps) {
       animate="visible"
     >
       {projects.map((project) => (
-        <ProjectCard key={project.slug} project={project} language={language} />
+        <ProjectCard key={project.slug} project={project} />
       ))}
     </motion.div>
   );

@@ -62,6 +62,14 @@ export function generatePageMetadata(
       description,
       images: ['https://rosairekakpo.com/og-image.jpg'],
     },
+    alternates: {
+      canonical: url,
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    viewport: 'width=device-width, initial-scale=1',
   };
 }
 

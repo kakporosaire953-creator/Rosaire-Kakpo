@@ -64,6 +64,7 @@ export default function ContactForm() {
   return (
     <motion.form
       onSubmit={handleSubmit}
+      noValidate
       className="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-md border border-slate-200 dark:border-slate-700"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}

@@ -115,6 +115,7 @@ export const PROJECT_CATEGORIES = [
   { id: 'mobile', label: 'Mobile', labelEn: 'Mobile' },
   { id: 'ecommerce', label: 'E-commerce', labelEn: 'E-commerce' },
   { id: 'iot', label: 'IoT', labelEn: 'IoT' },
+  { id: 'backend', label: 'Backend', labelEn: 'Backend' },
 ];
 
 export const FAQ_ITEMS = [

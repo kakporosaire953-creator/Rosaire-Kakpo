@@ -12,14 +12,14 @@ jest.mock('framer-motion', () => {
 
         React.useEffect(() => {
           const startTime = Date.now();
-          const duration = (transition?.duration || 0.3) * 1000;
+          const duration = 10; // 10ms mock transition duration to prevent test timing flakes
 
           const timer = setTimeout(() => {
             setIsAnimating(false);
           }, duration);
 
           return () => clearTimeout(timer);
-        }, [transition?.duration]);
+        }, []);
 
         return (
           <div

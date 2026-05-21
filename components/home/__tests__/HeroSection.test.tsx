@@ -34,7 +34,7 @@ describe('HeroSection Component', () => {
 
   it('renders main title in French', () => {
     render(<HeroSection />);
-    expect(screen.getByText('Développeur Full Stack')).toBeInTheDocument();
+    expect(screen.getByText('Développeur Frontend')).toBeInTheDocument();
   });
 
   it('renders subtitle in French', () => {

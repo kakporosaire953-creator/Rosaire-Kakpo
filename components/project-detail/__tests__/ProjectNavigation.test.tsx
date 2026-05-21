@@ -46,7 +46,7 @@ describe('ProjectNavigation Component', () => {
     render(
       <ProjectNavigation previousProject={previousProject} nextProject={null} />
     );
-    expect(screen.getByText('Projet précédent')).toBeInTheDocument();
+    expect(screen.getByText(/Projet précédent/)).toBeInTheDocument();
     expect(screen.getByText('Previous Project')).toBeInTheDocument();
   });
 
@@ -55,7 +55,7 @@ describe('ProjectNavigation Component', () => {
     render(
       <ProjectNavigation previousProject={null} nextProject={nextProject} />
     );
-    expect(screen.getByText('Projet suivant')).toBeInTheDocument();
+    expect(screen.getByText(/Projet suivant/)).toBeInTheDocument();
     expect(screen.getByText('Next Project')).toBeInTheDocument();
   });
 
@@ -65,8 +65,8 @@ describe('ProjectNavigation Component', () => {
     render(
       <ProjectNavigation previousProject={previousProject} nextProject={nextProject} />
     );
-    expect(screen.getByText('Projet précédent')).toBeInTheDocument();
-    expect(screen.getByText('Projet suivant')).toBeInTheDocument();
+    expect(screen.getByText(/Projet précédent/)).toBeInTheDocument();
+    expect(screen.getByText(/Projet suivant/)).toBeInTheDocument();
   });
 
   it('renders correct href for previous project', () => {

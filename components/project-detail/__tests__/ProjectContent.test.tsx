@@ -68,7 +68,7 @@ describe('ProjectContent Component', () => {
   it('renders testimonial section', () => {
     render(<ProjectContent project={mockProject} />);
     expect(screen.getByText('Témoignage')).toBeInTheDocument();
-    expect(screen.getByText('Great work!')).toBeInTheDocument();
+    expect(screen.getByText(/Great work!/)).toBeInTheDocument();
     expect(screen.getByText('John Doe')).toBeInTheDocument();
     expect(screen.getByText('CEO')).toBeInTheDocument();
   });

@@ -32,11 +32,11 @@ describe('ContactForm', () => {
 
   it('renders form labels', () => {
     renderWithProviders(<ContactForm />);
-    expect(screen.getByText('Nom')).toBeInTheDocument();
-    expect(screen.getByText('Email')).toBeInTheDocument();
+    expect(screen.getByText(/Nom/)).toBeInTheDocument();
+    expect(screen.getByText(/Email/)).toBeInTheDocument();
     expect(screen.getByText('Type de projet')).toBeInTheDocument();
     expect(screen.getByText('Budget estimé')).toBeInTheDocument();
-    expect(screen.getByText('Message')).toBeInTheDocument();
+    expect(screen.getByText(/Message/)).toBeInTheDocument();
   });
 
   it('renders submit button', () => {

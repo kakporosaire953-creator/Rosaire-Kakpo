@@ -4,8 +4,8 @@ import Navigation from '../Navigation';
 
 // Mock next/link
 jest.mock('next/link', () => {
-  return ({ children, href }: any) => (
-    <a href={href}>{children}</a>
+  return ({ children, href, className, onClick }: any) => (
+    <a href={href} className={className} onClick={onClick}>{children}</a>
   );
 });
 

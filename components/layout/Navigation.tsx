@@ -32,7 +32,7 @@ export default function Navigation({
   };
 
   return (
-    <>
+    <nav className={containerClass}>
       {NAVIGATION_LINKS.map((link) => (
         <Link
           key={link.href}
@@ -43,6 +43,6 @@ export default function Navigation({
           {language === 'fr' ? link.label : link.labelEn}
         </Link>
       ))}
-    </>
+    </nav>
   );
 }

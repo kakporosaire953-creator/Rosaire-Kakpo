@@ -119,6 +119,9 @@ describe('Checkpoint - Test Suite Validation', () => {
       projects: ['ProjectFilter', 'ProjectCard', 'ProjectGrid'],
       projectDetail: ['ProjectHero', 'ProjectContent', 'ProjectNavigation', 'ProjectCTA'],
       contact: ['ContactForm', 'FAQAccordion', 'ContactMethods', 'ContactInfo'],
+      terminal: ['DevConsole'],
+      ai: ['AIChatbot'],
+      theme: ['ThemeSwitcher'],
     };
 
     const totalComponents = Object.values(componentCategories).reduce(

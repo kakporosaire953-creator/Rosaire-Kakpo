@@ -142,18 +142,16 @@ describe('Providers - Property: Theme Toggle Persistence', () => {
     });
 
     const toggleButton = screen.getByTestId('theme-toggle');
-    const themes: string[] = [];
+    const initialTheme = screen.getByTestId('theme-display').textContent;
+    let currentExpected = initialTheme;
 
     for (let i = 0; i < 4; i++) {
+      currentExpected = currentExpected === 'light' ? 'dark' : 'light';
       fireEvent.click(toggleButton);
       await waitFor(() => {
-        const theme = screen.getByTestId('theme-display').textContent;
-        themes.push(theme || '');
+        expect(screen.getByTestId('theme-display').textContent).toBe(currentExpected);
       });
     }
-
-    // After 4 toggles, should return to original theme
-    expect(themes[0]).toBe(themes[3]);
   });
 });
 
@@ -252,18 +250,16 @@ describe('Providers - Property: Language Switch Consistency', () => {
     });
 
     const toggleButton = screen.getByTestId('language-toggle');
-    const languages: string[] = [];
+    const initialLanguage = screen.getByTestId('language-display').textContent;
+    let currentExpected = initialLanguage;
 
     for (let i = 0; i < 4; i++) {
+      currentExpected = currentExpected === 'fr' ? 'en' : 'fr';
       fireEvent.click(toggleButton);
       await waitFor(() => {
-        const language = screen.getByTestId('language-display').textContent;
-        languages.push(language || '');
+        expect(screen.getByTestId('language-display').textContent).toBe(currentExpected);
       });
     }
-
-    // After 4 toggles, should return to original language
-    expect(languages[0]).toBe(languages[3]);
   });
 
   it('should maintain language across multiple renders', async () => {

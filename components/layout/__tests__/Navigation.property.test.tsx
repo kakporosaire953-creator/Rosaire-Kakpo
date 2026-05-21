@@ -5,8 +5,8 @@ import { NAVIGATION_LINKS } from '@/lib/constants';
 
 // Mock next/link
 jest.mock('next/link', () => {
-  return ({ children, href }: any) => (
-    <a href={href}>{children}</a>
+  return ({ children, href, className }: any) => (
+    <a href={href} className={className}>{children}</a>
   );
 });
 

@@ -50,7 +50,8 @@ describe('FeaturedProjects Component', () => {
 
   it('renders project years', () => {
     render(<FeaturedProjects />);
-    expect(screen.getByText('2024')).toBeInTheDocument();
+    const years = screen.getAllByText('2024');
+    expect(years.length).toBeGreaterThan(0);
   });
 
   it('renders project technologies', () => {

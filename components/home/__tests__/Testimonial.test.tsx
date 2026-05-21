@@ -18,9 +18,9 @@ jest.mock('@/app/providers', () => ({
 
 describe('Testimonial Component', () => {
   it('renders 5 stars', () => {
-    const { container } = render(<Testimonial />);
-    const stars = container.querySelectorAll('span:contains("⭐")');
-    expect(stars.length).toBeGreaterThanOrEqual(0);
+    render(<Testimonial />);
+    const stars = screen.getAllByText('⭐');
+    expect(stars.length).toBe(5);
   });
 
   it('renders testimonial text in French', () => {

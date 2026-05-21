@@ -1,7 +1,7 @@
 import { generateProjectMetadata } from '@/lib/metadata';
 import PageTransition from '@/components/shared/PageTransition';
 import Breadcrumb from '@/components/shared/Breadcrumb';
-import { getProjectBySlug, getProjectSlugs, getAdjacentProjects } from '@/lib/projects';
+import { getProjectBySlug, getAdjacentProjects } from '@/lib/projects';
 import { notFound } from 'next/navigation';
 import ProjectHero from '@/components/project-detail/ProjectHero';
 import ProjectContent from '@/components/project-detail/ProjectContent';

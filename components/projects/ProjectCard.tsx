@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Project } from '@/lib/types';
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Code2 } from 'lucide-react';
 import { useLanguage } from '@/app/providers';
 
 interface ProjectCardProps {
@@ -33,7 +33,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
             ) : (
-              <Phone className="w-12 h-12 text-6xl group-hover:scale-110 transition-transform duration-300" />
+              <Code2 className="w-12 h-12 text-white group-hover:scale-110 transition-transform duration-300" />
             )}
             {/* Overlay Badge */}
             <div className="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">

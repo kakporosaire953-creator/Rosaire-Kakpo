@@ -3,11 +3,20 @@
 import { Universe } from '@/lib/types';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { Globe, Smartphone, ShoppingCart, Cpu, Server } from 'lucide-react';
 
 interface UniverseCardProps {
   universe: Universe;
   language: 'fr' | 'en';
 }
+
+const iconMap: Record<string, React.ReactNode> = {
+  Globe: <Globe className="w-8 h-8" />,
+  Smartphone: <Smartphone className="w-8 h-8" />,
+  ShoppingCart: <ShoppingCart className="w-8 h-8" />,
+  Cpu: <Cpu className="w-8 h-8" />,
+  Server: <Server className="w-8 h-8" />,
+};
 
 export default function UniverseCard({ universe, language }: UniverseCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -33,7 +42,9 @@ export default function UniverseCard({ universe, language }: UniverseCardProps) 
                 </h3>
                 <p className="text-blue-100">{universe.description}</p>
               </div>
-              <div className="text-4xl">{universe.icon}</div>
+              <div className="text-white" style={{ color: 'var(--accent-secondary)' }}>
+                {iconMap[universe.icon] || <Globe className="w-8 h-8" />}
+              </div>
             </div>
           </div>
 

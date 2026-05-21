@@ -2,9 +2,19 @@
 
 import { useLanguage } from '@/app/providers';
 import { motion } from 'framer-motion';
+import { Cloud, ShoppingCart, Smartphone, BarChart2, Plug, Server } from 'lucide-react';
 
 export default function UseCasesSection() {
   const { language } = useLanguage();
+
+  const iconMap: Record<string, JSX.Element> = {
+    '☁️': <Cloud className="w-12 h-12" />,
+    '🛒': <ShoppingCart className="w-12 h-12" />,
+    '📱': <Smartphone className="w-12 h-12" />,
+    '📊': <BarChart2 className="w-12 h-12" />,
+    '🔌': <Plug className="w-12 h-12" />,
+    '⚙️': <Server className="w-12 h-12" />,
+  };
 
   const useCases = [
     {
@@ -17,7 +27,7 @@ export default function UseCasesSection() {
     {
       titleFr: 'E-commerce',
       titleEn: 'E-commerce',
-      descFr: 'Boutiques en ligne avec gestion d\'inventaire et paiement',
+      descFr: "Boutiques en ligne avec gestion d'inventaire et paiement",
       descEn: 'Online stores with inventory management and payment',
       icon: '🛒',
     },
@@ -100,7 +110,7 @@ export default function UseCasesSection() {
           {useCases.map((useCase, index) => (
             <motion.div key={index} variants={itemVariants}>
               <div className="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-slate-200 dark:border-slate-700">
-                <div className="text-5xl mb-4">{useCase.icon}</div>
+                <div className="text-5xl mb-4">{iconMap[useCase.icon]}</div>
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">
                   {language === 'fr' ? useCase.titleFr : useCase.titleEn}
                 </h3>

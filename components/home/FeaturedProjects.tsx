@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/app/providers';
 import { getFeaturedProjects } from '@/lib/projects';
 import { motion } from 'framer-motion';
+import { Phone } from 'lucide-react';
 
 export default function FeaturedProjects() {
   const { language } = useLanguage();
@@ -64,7 +65,7 @@ export default function FeaturedProjects() {
                 <div className="h-full bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden cursor-pointer border border-slate-200 dark:border-slate-700">
                   {/* Project Image */}
                   <div className="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                    <span className="text-4xl">📱</span>
+                    <Phone className="w-6 h-6 text-4xl" />
                   </div>
 
                   {/* Project Content */}

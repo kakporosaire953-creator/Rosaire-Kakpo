@@ -56,8 +56,8 @@ export default function HeroSection() {
           variants={itemVariants}
         >
           {language === 'fr'
-            ? 'Je transforme vos idées en solutions numériques innovantes. Web, Mobile, E-commerce, IoT et Backend.'
-            : 'I transform your ideas into innovative digital solutions. Web, Mobile, E-commerce, IoT and Backend.'}
+            ? 'Développeur Frontend basé à Cotonou. Je crée des solutions numériques innovantes pour l\'Afrique de l\'Ouest : Web3, E-commerce, Mobile Money, et applications modernes.'
+            : 'Frontend Developer based in Cotonou. I create innovative digital solutions for West Africa: Web3, E-commerce, Mobile Money, and modern applications.'}
         </motion.p>
 
         {/* CTA Buttons */}

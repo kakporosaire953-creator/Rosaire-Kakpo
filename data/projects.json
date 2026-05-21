@@ -10,11 +10,6 @@
       "technologies": ["React", "Solidity", "Web3.js", "Ethereum", "TypeScript", "Tailwind CSS"],
       "images": ["/projects/tontinechain-1.jpg", "/projects/tontinechain-2.jpg"],
       "results": ["Système de tontine 100% transparent", "Transactions sécurisées via blockchain", "Accessible sur mobile et desktop"],
-      "testimonial": {
-        "author": "Utilisateurs TontineChain",
-        "role": "Communauté Africaine",
-        "content": "Enfin une solution moderne et sécurisée pour nos tontines traditionnelles."
-      },
       "links": {
         "live": "https://tontinechain.vercel.app",
         "github": "https://github.com/kakporosaire953-creator/tontinechain"

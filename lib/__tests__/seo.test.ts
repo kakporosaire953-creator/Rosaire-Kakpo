@@ -126,14 +126,11 @@ describe('SEO Metadata', () => {
     }
   });
 
-  it('should include viewport metadata', () => {
-    const metadata = generatePageMetadata(
-      'Test Page',
-      'Test description',
-      '/test'
-    );
-
-    expect(metadata.viewport).toBeDefined();
+  it('should include viewport metadata in layout', () => {
+    const { viewport } = require('../../app/layout');
+    expect(viewport).toBeDefined();
+    expect(viewport.width).toBe('device-width');
+    expect(viewport.initialScale).toBe(1);
   });
 
   it('should have consistent metadata structure', () => {

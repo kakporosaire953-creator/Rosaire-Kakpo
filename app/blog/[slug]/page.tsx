@@ -5,7 +5,7 @@ import { useLanguage } from '@/app/providers';
 import PageTransition from '@/components/shared/PageTransition';
 import Link from 'next/link';
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+export default function BlogPostPage() {
   const { language } = useLanguage();
 
   // Mock data - en production, récupérer depuis une base de données

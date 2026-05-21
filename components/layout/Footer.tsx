@@ -16,8 +16,8 @@ export default function Footer() {
             <h3 className="text-2xl font-bold mb-2">Rosaire Kakpo</h3>
             <p className="text-slate-400 text-sm">
               {language === 'fr'
-                ? 'Développeur Full Stack spécialisé en web, mobile, e-commerce et IoT.'
-                : 'Full Stack Developer specialized in web, mobile, e-commerce and IoT.'}
+                ? 'Développeur Frontend spécialisé en web, mobile, e-commerce et solutions africaines.'
+                : 'Frontend Developer specialized in web, mobile, e-commerce and African solutions.'}
             </p>
           </div>
 
@@ -105,7 +105,7 @@ export default function Footer() {
         <div className="border-t border-slate-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-slate-400">
             <p>
-              © 2024 Rosaire Kakpo.{' '}
+              © 2026 Rosaire Kakpo.{' '}
               {language === 'fr' ? 'Tous droits réservés.' : 'All rights reserved.'}
             </p>
             <p>

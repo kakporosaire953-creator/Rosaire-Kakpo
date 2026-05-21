@@ -100,12 +100,12 @@ export const CONTACT_INFO = {
   availability: 'Disponible pour des projets',
   responseTime: '24-48 heures',
   email: 'contact@rosairekakpo.com',
-  phone: '+229 XX XX XX XX',
+  phone: '+229 68 81 20 19',
   social: {
-    github: 'https://github.com',
-    linkedin: 'https://linkedin.com',
-    twitter: 'https://twitter.com',
-    whatsapp: 'https://wa.me',
+    github: 'https://github.com/kakporosaire953-creator',
+    linkedin: 'https://linkedin.com/in/rosaire-kakpo',
+    twitter: 'https://twitter.com/rosairekakpo',
+    whatsapp: 'https://wa.me/22968812019',
   },
 };
 

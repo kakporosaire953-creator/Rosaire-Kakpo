@@ -1,95 +1,115 @@
 {
   "projects": [
     {
-      "slug": "ecommerce-platform",
-      "title": "Plateforme E-commerce",
-      "category": "ecommerce",
-      "description": "Solution e-commerce complète avec intégration de paiement",
-      "context": "Un client avait besoin d'une boutique en ligne scalable pour vendre ses produits",
-      "solution": "J'ai construit une plateforme e-commerce avec Next.js, intégration Stripe et base de données PostgreSQL",
-      "technologies": ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS"],
-      "images": ["/projects/ecommerce-1.jpg", "/projects/ecommerce-2.jpg"],
-      "results": ["Augmentation de 50% des ventes", "99.9% de disponibilité"],
+      "slug": "tontinechain",
+      "title": "TontineChain",
+      "category": "web",
+      "description": "Plateforme Web3 de tontine décentralisée pour l'Afrique de l'Ouest",
+      "context": "Les tontines traditionnelles africaines manquent de transparence et de sécurité. TontineChain apporte la blockchain pour moderniser ce système financier ancestral.",
+      "solution": "Plateforme Web3 avec smart contracts Solidity, interface React, intégration wallet MetaMask et système de gestion de tontines décentralisé",
+      "technologies": ["React", "Solidity", "Web3.js", "Ethereum", "TypeScript", "Tailwind CSS"],
+      "images": ["/projects/tontinechain-1.jpg", "/projects/tontinechain-2.jpg"],
+      "results": ["Système de tontine 100% transparent", "Transactions sécurisées via blockchain", "Accessible sur mobile et desktop"],
       "testimonial": {
-        "author": "Jean Dupont",
-        "role": "PDG",
-        "content": "Rosaire a livré une plateforme exceptionnelle. Le service était professionnel et réactif."
+        "author": "Utilisateurs TontineChain",
+        "role": "Communauté Africaine",
+        "content": "Enfin une solution moderne et sécurisée pour nos tontines traditionnelles."
       },
       "links": {
-        "live": "https://example-ecommerce.com",
-        "github": "https://github.com/example/ecommerce"
+        "live": "https://tontinechain.vercel.app",
+        "github": "https://github.com/kakporosaire953-creator/tontinechain"
+      },
+      "year": 2024,
+      "duration": "4 mois",
+      "status": "completed"
+    },
+    {
+      "slug": "campusly",
+      "title": "Campusly",
+      "category": "mobile",
+      "description": "Plateforme de gestion communautaire pour campus universitaires",
+      "context": "Les étudiants manquent d'une plateforme centralisée pour gérer les événements, les groupes d'étude et la vie communautaire du campus.",
+      "solution": "Application mobile cross-platform avec React Native, backend Node.js, base de données MongoDB et système de notifications en temps réel",
+      "technologies": ["React Native", "Node.js", "MongoDB", "Firebase", "TypeScript"],
+      "images": ["/projects/campusly-1.jpg", "/projects/campusly-2.jpg"],
+      "results": ["Utilisée par 500+ étudiants", "50+ événements organisés", "Communauté active et engagée"],
+      "links": {
+        "live": "https://campusly.app",
+        "github": "https://github.com/kakporosaire953-creator/campusly"
       },
       "year": 2024,
       "duration": "3 mois",
       "status": "completed"
     },
     {
-      "slug": "mobile-app",
-      "title": "Application Mobile",
-      "category": "mobile",
-      "description": "Application mobile cross-platform pour la gestion de tâches",
-      "context": "Besoin d'une application mobile pour gérer les tâches quotidiennes",
-      "solution": "Développement d'une application React Native avec synchronisation cloud",
-      "technologies": ["React Native", "Firebase", "Redux", "TypeScript"],
-      "images": ["/projects/mobile-1.jpg", "/projects/mobile-2.jpg"],
-      "results": ["10k+ téléchargements", "4.8/5 étoiles"],
+      "slug": "apple-confidence",
+      "title": "Apple Confidence",
+      "category": "ecommerce",
+      "description": "Plateforme e-commerce pour produits agricoles béninois",
+      "context": "Les producteurs agricoles béninois ont besoin d'une plateforme pour vendre directement aux consommateurs sans intermédiaires.",
+      "solution": "E-commerce full-stack avec Next.js, Stripe pour les paiements, système de gestion d'inventaire et intégration Mobile Money (MTN, Moov)",
+      "technologies": ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS", "Mobile Money API"],
+      "images": ["/projects/apple-confidence-1.jpg", "/projects/apple-confidence-2.jpg"],
+      "results": ["100+ produits listés", "Paiements sécurisés via Stripe et Mobile Money", "Livraison dans toute la région"],
       "links": {
-        "github": "https://github.com/example/mobile-app"
+        "live": "https://apple-confidence.vercel.app",
+        "github": "https://github.com/kakporosaire953-creator/apple-confidence"
       },
       "year": 2024,
-      "duration": "2 mois",
+      "duration": "2.5 mois",
       "status": "completed"
     },
     {
-      "slug": "iot-smart-home",
-      "title": "Système Domotique IoT",
-      "category": "iot",
-      "description": "Système de domotique connecté avec contrôle via application",
-      "context": "Automatisation d'une maison intelligente avec capteurs et contrôle à distance",
-      "solution": "Système IoT avec Arduino, capteurs et application de contrôle",
-      "technologies": ["Arduino", "Python", "MQTT", "React"],
-      "images": ["/projects/iot-1.jpg", "/projects/iot-2.jpg"],
-      "results": ["Économies d'énergie de 30%", "Automatisation complète"],
+      "slug": "gbeto",
+      "title": "Gbéto",
+      "category": "backend",
+      "description": "API backend pour gestion de communautés locales",
+      "context": "Les communautés locales béninoises ont besoin d'une infrastructure backend robuste pour gérer leurs données, membres et transactions.",
+      "solution": "API REST scalable avec Node.js, Express, PostgreSQL, Redis pour le caching et système d'authentification JWT sécurisé",
+      "technologies": ["Node.js", "Express", "PostgreSQL", "Redis", "JWT", "Docker"],
+      "images": ["/projects/gbeto-1.jpg", "/projects/gbeto-2.jpg"],
+      "results": ["API supportant 10k+ requêtes/jour", "99.9% uptime", "Latence moyenne < 100ms"],
       "links": {
-        "github": "https://github.com/example/smart-home"
+        "github": "https://github.com/kakporosaire953-creator/gbeto"
       },
       "year": 2023,
-      "duration": "4 mois",
+      "duration": "3 mois",
       "status": "completed"
     },
     {
-      "slug": "web-dashboard",
-      "title": "Tableau de Bord Web",
+      "slug": "gesture-hero",
+      "title": "Gesture Hero",
       "category": "web",
-      "description": "Tableau de bord analytique pour suivi de données en temps réel",
-      "context": "Besoin de visualiser les données d'une entreprise en temps réel",
-      "solution": "Tableau de bord interactif avec graphiques en temps réel et export de données",
-      "technologies": ["React", "Next.js", "Chart.js", "PostgreSQL"],
-      "images": ["/projects/dashboard-1.jpg", "/projects/dashboard-2.jpg"],
-      "results": ["Réduction du temps d'analyse de 70%", "Décisions plus rapides"],
+      "description": "Application de reconnaissance de gestes avec Machine Learning",
+      "context": "Créer une interface intuitive basée sur les gestes pour améliorer l'accessibilité et l'expérience utilisateur.",
+      "solution": "Application web avec TensorFlow.js pour la reconnaissance de gestes en temps réel, interface React interactive et visualisation 3D",
+      "technologies": ["React", "TensorFlow.js", "Three.js", "TypeScript", "WebGL"],
+      "images": ["/projects/gesture-hero-1.jpg", "/projects/gesture-hero-2.jpg"],
+      "results": ["Reconnaissance de 20+ gestes", "Latence < 50ms", "Précision 95%+"],
       "links": {
-        "live": "https://example-dashboard.com",
-        "github": "https://github.com/example/dashboard"
-      },
-      "year": 2024,
-      "duration": "6 semaines",
-      "status": "completed"
-    },
-    {
-      "slug": "backend-api",
-      "title": "API Backend Scalable",
-      "category": "backend",
-      "description": "Architecture backend scalable pour application multi-clients",
-      "context": "Besoin d'une API robuste pour supporter plusieurs applications clients",
-      "solution": "API REST avec Node.js, authentification JWT et base de données MongoDB",
-      "technologies": ["Node.js", "Express", "MongoDB", "JWT", "Docker"],
-      "images": ["/projects/backend-1.jpg"],
-      "results": ["Support de 100k+ utilisateurs", "Latence < 100ms"],
-      "links": {
-        "github": "https://github.com/example/backend-api"
+        "live": "https://gesture-hero.vercel.app",
+        "github": "https://github.com/kakporosaire953-creator/gesture-hero"
       },
       "year": 2024,
       "duration": "2 mois",
+      "status": "completed"
+    },
+    {
+      "slug": "aux-antipodes",
+      "title": "Aux Antipodes",
+      "category": "web",
+      "description": "Site vitrine pour agence de voyage spécialisée en destinations exotiques",
+      "context": "Agence de voyage ayant besoin d'une présence web moderne pour attirer des clients et présenter ses offres de voyages.",
+      "solution": "Site vitrine performant avec Next.js, animations Framer Motion, galerie d'images optimisée et système de réservation intégré",
+      "technologies": ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS", "Stripe"],
+      "images": ["/projects/aux-antipodes-1.jpg", "/projects/aux-antipodes-2.jpg"],
+      "results": ["50+ destinations présentées", "Conversion 15%", "Temps de chargement < 2s"],
+      "links": {
+        "live": "https://aux-antipodes.vercel.app",
+        "github": "https://github.com/kakporosaire953-creator/aux-antipodes"
+      },
+      "year": 2023,
+      "duration": "1.5 mois",
       "status": "completed"
     }
   ]

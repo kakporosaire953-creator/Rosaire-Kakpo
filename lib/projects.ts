@@ -2,7 +2,7 @@ import { Project } from './types';
 import projectsData from '@/data/projects.json';
 
 export function getAllProjects(): Project[] {
-  return projectsData.projects;
+  return projectsData.projects as Project[];
 }
 
 export function getProjectBySlug(slug: string): Project | undefined {

@@ -59,15 +59,6 @@ export default function FloatingCards() {
     },
   };
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  };
-
   return (
     <motion.div
       className="grid grid-cols-2 md:grid-cols-3 gap-4"

@@ -139,11 +139,22 @@ describe('ContactForm - Property-Based Tests', () => {
 
           fireEvent.click(submitButton);
 
-          await waitFor(() => {
-            expect(nameInput.value).toBe('');
-            expect(emailInput.value).toBe('');
-            expect(messageInput.value).toBe('');
-          });
+          const isValid =
+            data.name.trim().length > 0 &&
+            data.message.trim().length > 0 &&
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email);
+
+          if (isValid) {
+            await waitFor(() => {
+              expect(nameInput.value).toBe('');
+              expect(emailInput.value).toBe('');
+              expect(messageInput.value).toBe('');
+            });
+          } else {
+            await waitFor(() => {
+              expect(emailInput.value).toBe(data.email);
+            });
+          }
         }
       ),
       { numRuns: 20 }

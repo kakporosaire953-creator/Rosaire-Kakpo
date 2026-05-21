@@ -1,5 +1,12 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import PageTransition from '@/components/shared/PageTransition';
+
+// Mock framer-motion to avoid animation related opacity: 0 checks in tests
+jest.mock('framer-motion', () => ({
+  motion: {
+    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
+  },
+}));
 
 /**
  * Unit Tests: Page Transition Animations
@@ -95,7 +102,7 @@ describe('Page Transition Animations', () => {
     );
 
     const button = screen.getByRole('button');
-    button.click();
+    fireEvent.click(button);
 
     expect(handleClick).toHaveBeenCalled();
   });
@@ -147,7 +154,7 @@ describe('Page Transition Animations', () => {
     expect(screen.getByText('Count: 0')).toBeInTheDocument();
 
     const button = screen.getByRole('button');
-    button.click();
+    fireEvent.click(button);
 
     expect(screen.getByText('Count: 1')).toBeInTheDocument();
   });

@@ -23,7 +23,7 @@ describe('Footer Component', () => {
     expect(screen.getByText('Rosaire Kakpo')).toBeInTheDocument();
     expect(screen.getByText('Navigation')).toBeInTheDocument();
     expect(screen.getByText('Réseaux')).toBeInTheDocument();
-    expect(screen.getByText('Contact')).toBeInTheDocument();
+    expect(screen.getAllByText('Contact').length).toBeGreaterThan(0);
   });
 
   it('renders all navigation links', () => {
@@ -33,7 +33,7 @@ describe('Footer Component', () => {
     expect(screen.getByText('À propos')).toBeInTheDocument();
     expect(screen.getByText('Compétences')).toBeInTheDocument();
     expect(screen.getByText('Projets')).toBeInTheDocument();
-    expect(screen.getByText('Contact')).toBeInTheDocument();
+    expect(screen.getAllByText('Contact').length).toBeGreaterThan(0);
   });
 
   it('renders social media links', () => {

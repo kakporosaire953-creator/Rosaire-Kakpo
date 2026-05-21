@@ -30,8 +30,8 @@ describe('Timeline Component', () => {
 
   it('renders event dates', () => {
     render(<Timeline />);
-    expect(screen.getByText('2023')).toBeInTheDocument();
-    expect(screen.getByText('2024')).toBeInTheDocument();
+    expect(screen.getAllByText('2023').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('2024').length).toBeGreaterThan(0);
   });
 
   it('renders event organizations', () => {

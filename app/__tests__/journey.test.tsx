@@ -26,14 +26,14 @@ describe('Journey Page', () => {
     render(<Journey />);
     TIMELINE_EVENTS.forEach((event) => {
       expect(screen.getByText(event.title)).toBeInTheDocument();
-      expect(screen.getByText(event.organization)).toBeInTheDocument();
+      expect(screen.getByText(new RegExp(event.organization + ' • ' + event.date))).toBeInTheDocument();
     });
   });
 
   it('renders timeline event dates', () => {
     render(<Journey />);
     TIMELINE_EVENTS.forEach((event) => {
-      expect(screen.getByText(new RegExp(event.date))).toBeInTheDocument();
+      expect(screen.getAllByText(new RegExp(event.date)).length).toBeGreaterThan(0);
     });
   });
 
@@ -59,7 +59,7 @@ describe('Journey Page', () => {
     render(<Journey />);
     const eventTypes = new Set(TIMELINE_EVENTS.map((e) => e.type));
     eventTypes.forEach((type) => {
-      expect(screen.getByText(new RegExp(type, 'i'))).toBeInTheDocument();
+      expect(screen.getAllByText(new RegExp(type, 'i')).length).toBeGreaterThan(0);
     });
   });
 

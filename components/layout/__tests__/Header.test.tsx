@@ -54,16 +54,16 @@ describe('Header Component', () => {
     render(<Header />);
     const mobileMenuButton = screen.getByLabelText('Toggle mobile menu');
     
-    // Initially, mobile menu should not be visible
-    expect(screen.queryByText('Accueil')).not.toBeInTheDocument();
+    // Initially, mobile menu should not be visible (only desktop menu is present)
+    expect(screen.getAllByText('Accueil')).toHaveLength(1);
     
-    // Click to open
+    // Click to open (both desktop and mobile menus are present)
     fireEvent.click(mobileMenuButton);
-    expect(screen.getByText('Accueil')).toBeInTheDocument();
+    expect(screen.getAllByText('Accueil')).toHaveLength(2);
     
-    // Click to close
+    // Click to close (back to only desktop menu)
     fireEvent.click(mobileMenuButton);
-    expect(screen.queryByText('Accueil')).not.toBeInTheDocument();
+    expect(screen.getAllByText('Accueil')).toHaveLength(1);
   });
 
   it('renders navigation links', () => {

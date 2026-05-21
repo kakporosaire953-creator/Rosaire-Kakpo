@@ -2,48 +2,50 @@
 
 import { useLanguage } from '@/app/providers';
 import { motion } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBullseye, faClock, faComments, faRocket, faHandshake, faChartLine } from '@fortawesome/free-solid-svg-icons';
 
 export default function ValuesSection() {
   const { language } = useLanguage();
 
   const values = [
     {
-      icon: '🎯',
+      icon: faBullseye,
       titleFr: 'Qualité',
       titleEn: 'Quality',
       descFr: 'Je m\'engage à livrer du code propre et performant',
       descEn: 'I commit to delivering clean and performant code',
     },
     {
-      icon: '⏰',
+      icon: faClock,
       titleFr: 'Ponctualité',
       titleEn: 'Punctuality',
       descFr: 'Les délais sont respectés et les livrables sont à temps',
       descEn: 'Deadlines are met and deliverables are on time',
     },
     {
-      icon: '💬',
+      icon: faComments,
       titleFr: 'Communication',
       titleEn: 'Communication',
       descFr: 'Une communication claire et régulière avec les clients',
       descEn: 'Clear and regular communication with clients',
     },
     {
-      icon: '🚀',
+      icon: faRocket,
       titleFr: 'Innovation',
       titleEn: 'Innovation',
       descFr: 'Je reste à jour avec les dernières technologies',
       descEn: 'I stay up-to-date with the latest technologies',
     },
     {
-      icon: '🤝',
+      icon: faHandshake,
       titleFr: 'Collaboration',
       titleEn: 'Collaboration',
       descFr: 'Je travaille efficacement en équipe',
       descEn: 'I work effectively in teams',
     },
     {
-      icon: '📈',
+      icon: faChartLine,
       titleFr: 'Croissance',
       titleEn: 'Growth',
       descFr: 'L\'apprentissage continu est au cœur de ma pratique',
@@ -100,7 +102,9 @@ export default function ValuesSection() {
           {values.map((value, index) => (
             <motion.div key={index} variants={itemVariants}>
               <div className="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-slate-200 dark:border-slate-700">
-                <div className="text-5xl mb-4">{value.icon}</div>
+                <div className="text-5xl mb-4 text-blue-600 dark:text-blue-400">
+                  <FontAwesomeIcon icon={value.icon} className="w-12 h-12" />
+                </div>
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">
                   {language === 'fr' ? value.titleFr : value.titleEn}
                 </h3>

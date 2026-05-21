@@ -6,6 +6,8 @@ import { usePathname } from 'next/navigation';
 import { useTheme, useLanguage } from '@/app/providers';
 import Navigation from './Navigation';
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
 export default function Header() {
   const pathname = usePathname();
@@ -19,7 +21,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <Image src="/logo.png" alt="Rosaire Kakpo" width={40} height={40} priority />
+            <Image src="/logo.png" alt="Rosaire Kakpo" width={60} height={60} priority className="hover:scale-110 transition-transform" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -44,7 +46,7 @@ export default function Header() {
               className="p-2 rounded-md bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
               aria-label="Toggle theme"
             >
-              {theme === 'light' ? '🌙' : '☀️'}
+              <FontAwesomeIcon icon={theme === 'light' ? faMoon : faSun} className="w-5 h-5" />
             </button>
 
             {/* Mobile Menu Button */}

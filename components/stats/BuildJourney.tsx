@@ -2,12 +2,14 @@
 
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/app/providers';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faKeyboard, faRocket, faWrench, faChartBar, faCalendar, faSmile } from '@fortawesome/free-solid-svg-icons';
 
 interface Stat {
   label: string;
   labelEn: string;
   value: string | number;
-  icon: string;
+  icon: any;
   color: string;
 }
 
@@ -16,42 +18,42 @@ const STATS: Stat[] = [
     label: 'Heures de code',
     labelEn: 'Hours of Code',
     value: '3000+',
-    icon: '⌨️',
+    icon: faKeyboard,
     color: 'from-blue-500 to-blue-600',
   },
   {
     label: 'Projets terminés',
     labelEn: 'Projects Completed',
     value: '15+',
-    icon: '🚀',
+    icon: faRocket,
     color: 'from-purple-500 to-purple-600',
   },
   {
     label: 'Technologies',
     labelEn: 'Technologies',
     value: '20+',
-    icon: '🛠️',
+    icon: faWrench,
     color: 'from-green-500 to-green-600',
   },
   {
     label: 'Commits GitHub',
     labelEn: 'GitHub Commits',
     value: '1500+',
-    icon: '📊',
+    icon: faChartBar,
     color: 'from-orange-500 to-orange-600',
   },
   {
     label: 'Années d\'expérience',
     labelEn: 'Years of Experience',
     value: '3+',
-    icon: '📅',
+    icon: faCalendar,
     color: 'from-pink-500 to-pink-600',
   },
   {
     label: 'Clients satisfaits',
     labelEn: 'Happy Clients',
     value: '10+',
-    icon: '😊',
+    icon: faSmile,
     color: 'from-indigo-500 to-indigo-600',
   },
 ];
@@ -115,7 +117,9 @@ export default function BuildJourney() {
               className={`bg-gradient-to-br ${stat.color} p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow`}
             >
               <div className="text-white">
-                <div className="text-4xl mb-4">{stat.icon}</div>
+                <div className="text-4xl mb-4">
+                  <FontAwesomeIcon icon={stat.icon} className="w-10 h-10" />
+                </div>
                 <div className="text-5xl font-bold mb-2">{stat.value}</div>
                 <p className="text-sm opacity-90">
                   {language === 'fr' ? stat.label : stat.labelEn}

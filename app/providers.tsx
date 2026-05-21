@@ -21,7 +21,6 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export function Providers({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('light');
   const [language, setLanguage] = useState<Language>('fr');
-  const [mounted, setMounted] = useState(false);
 
   // Initialize theme from localStorage
   useEffect(() => {
@@ -41,8 +40,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
     if (savedLanguage) {
       setLanguage(savedLanguage);
     }
-
-    setMounted(true);
   }, []);
 
   const toggleTheme = () => {
